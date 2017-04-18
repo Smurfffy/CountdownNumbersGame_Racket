@@ -61,3 +61,24 @@ After finding the take and shuffle functions I could now get the randomly genera
 
 (randGameNumbers gameNumbers 6)
 ```
+#### 2.Getting A list for the Operators and combining them with the numbers list.
+Now that I have the 6 random numbers being generated I need to to create a list of operators to use with those numbers. Just like before I created a simple list contating all the opperators
+
+```
+(define operators (list '+ '- '* '/ ))
+```
+Next I wanted to be able to pair our list of numbers with these operators so I could, in thoery, start created equations. From class and from research on the racket documentation I came accross the cartesian-product fuction which could help me achieve this.
+
+From the Racket documentation.
+```
+  (cartesian-product lst ...) → (listof list?)
+
+  lst : list?
+```
+>Computes the n-ary cartesian product of the given lists.
+
+Now after finding this function i can create every outcome of our game numbers list combined with an operator.
+
+```
+(cartesian-product gameNumbers operators)
+```
