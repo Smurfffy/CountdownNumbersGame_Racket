@@ -10,4 +10,9 @@
   (take (shuffle lst) n))
 
 ; Outputs the numbers for the game
-(randGameNumbers gameNumbers 6)
+(define perm (remove-duplicates(permutations (randGameNumbers gameNumbers 6))))
+
+(define operators (list '+ '- '* '/ ))
+
+
+
