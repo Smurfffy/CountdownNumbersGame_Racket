@@ -13,7 +13,7 @@
 (define perm (remove-duplicates(permutations (randGameNumbers gameNumbers 6))))
 
 ;Defines the last of operators to be used in the game
-(define operators (list + - * / ))
+(define operators (list '+ '- '* '/ ))
 
 ;combines the gameNumbers list with the operators list to create every possible outcome.
 ;(cartesian-product gameNumbers operators)
