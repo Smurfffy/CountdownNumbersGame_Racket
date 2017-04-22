@@ -16,7 +16,33 @@
 (define operators (list '+ '- '* '/ ))
 
 ;combines the gameNumbers list with the operators list to create every possible outcome.
-(cartesian-product gameNumbers operators)
+;;(cartesian-product gameNumbers operators)
 
+;leaving the above commented out while I attempt to get this working with 2 arguments.
+(define numbers(list 5 50))
+
+;The sum function which gets the first number of the list and the 'rest' of the list
+;Which in this case is just 50
+;This wont work with 6 numbers however.
+(define (sum lst)
+  (+ (car numbers)(car(cdr numbers))))
+
+;Subtract function like sum above. numbers taken in different order so answer is not negative.
+(define (subtract lst)
+  (- (car(cdr numbers)) (car numbers)))
+
+;Multiply function similar to the two above functions. Number input order not important here
+(define (multiply lst)
+  (* (car(cdr numbers)) (car numbers)))
+
+;Divide function similar to all other functions above.
+(define (divide lst)
+  (/ (car(cdr numbers)) (car numbers)))
+
+;Outputs
+(sum numbers)
+(subtract numbers)
+(multiply numbers)
+(divide numbers)
 
 
