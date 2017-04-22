@@ -13,10 +13,10 @@
 (define perm (remove-duplicates(permutations (randGameNumbers gameNumbers 6))))
 
 ;Defines the last of operators to be used in the game
-(define operators (list '+ '- '* '/ ))
+(define operators (list + - * / ))
 
 ;combines the gameNumbers list with the operators list to create every possible outcome.
-;;(cartesian-product gameNumbers operators)
+;(cartesian-product gameNumbers operators)
 
 ;leaving the above commented out while I attempt to get this working with 2 arguments.
 (define numbers(list 5 50))
@@ -25,24 +25,33 @@
 ;Which in this case is just 50
 ;This wont work with 6 numbers however.
 (define (sum lst)
-  (+ (car numbers)(car(cdr numbers))))
+  (+ (car lst)(car(cdr lst))))
 
 ;Subtract function like sum above. numbers taken in different order so answer is not negative.
 (define (subtract lst)
-  (- (car(cdr numbers)) (car numbers)))
+  (- (car(cdr lst)) (car lst)))
 
 ;Multiply function similar to the two above functions. Number input order not important here
 (define (multiply lst)
-  (* (car(cdr numbers)) (car numbers)))
+  (* (car(cdr lst)) (car lst)))
 
 ;Divide function similar to all other functions above.
 (define (divide lst)
-  (/ (car(cdr numbers)) (car numbers)))
+  (/ (car(cdr lst)) (car lst)))
 
-;Outputs
-(sum numbers)
-(subtract numbers)
-(multiply numbers)
-(divide numbers)
+;These results could be useful in a list for generating a target number
+(define answers(list(sum numbers) (subtract numbers) (multiply numbers) (divide numbers)))
+
+;Takes in the list of possible answers for the two numbers and outputs 1 answer.
+;This will be the target number.
+(define (randTargetNumber lst n)
+  (take (shuffle lst) n))
+
+;Output
+"Game numbers are"
+numbers
+"Target number is"
+(randTargetNumber answers 1)
+
 
 
