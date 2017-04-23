@@ -20,10 +20,10 @@
 (define operatorOutput (list '+ '- '* '/))
 
 ;combines the gameNumbers list with the operators list to create every possible outcome.
-;(cartesian-product gameNumbers operators)
+(randGameNumbers (cartesian-product gameNumbers operatorOutput) 6)
 
 ;leaving the above commented out while I attempt to get this working with 2 arguments.
-(define numbers(list 5 50))
+(define numbers(randGameNumbers gameNumbers 2))
 
 ;The sum function which gets the first number of the list and the 'rest' of the list
 ;Which in this case is just 50
@@ -52,10 +52,10 @@
   (take (shuffle lst) n))
 
 ;Output
-;"Game numbers are"
-;numbers
-;"Target number is"
-;(randTargetNumber answers 1)
+"Game numbers are"
+numbers
+"Target number is"
+(randTargetNumber answers 1)
 
 ;Need to try get what I currently have working with two numbers with the 6 randomly generated numbers.
 ;This is a recursive sum funcition. Taken from the examples given in class.
@@ -77,6 +77,5 @@
 ;currentGameNumbers
 ;(sum6 currentGameNumbers)
 ;(multiply6 currentGameNumbers)
-
 
 
