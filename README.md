@@ -21,6 +21,9 @@ To create this I need a function which takes two arguments, the target number an
 '(- (+ (* 100 (+ 2 2)) 25) 1) 
 ```
 
+### Project Planning
+To keep on top of things while working on this project I kept a list of Todos using github issues which can be seen in this repositroy. I created milestones to organise the different objectives I felt I needed to reach. I also commited as often as I felt appropriate to avoid losing large amounts of work
+
 ## How I planned to make this work in Theory
 For this countdown game to work i need to get 6 numbers, a target number and then output all possible solutions. First with advice from my lectuerer Ian I went about trying to solve the problem with 2 numbers instead of one.
 
@@ -133,3 +136,17 @@ Now the output is the two numbers and the target number. Next I needed the progr
 #### 4. Recurssion
 A definition of recursion I found on the stack exchange is "A mathematical function that calls itself to compute a value corresponding to an n-th element and which defines some boundaries". With this in mind I thought I could use this to output the equation to acheive the target number. Perhaps with two numbers recursion might make it a bit simpilier but with 6 this could be difficult. Reverse Polish Notation should be researched when solving this problem with 6 numbers.
 
+## How To Run the Project.
+To run this project you must first install Dr.Racket on your machine. This can be done [here](https://racket-lang.org/)
+
+Then clone down this project and open the racket script. Run the script and you'll see the following output.
+
+```Racket
+'((6 *) (5 -) (75 /) (100 +) (6 +) (7 /))
+"Game numbers are"
+'(100 8)
+"Target number is"
+'(108)
+```
+
+Unfortinuatly this currently doesnt output the equation like I want it to. More research needs to be done to figure out this problem.
