@@ -57,6 +57,13 @@ numbers
 "Target number is"
 (randTargetNumber answers 1)
 
+;Below function was my attempt at recursion. else part left blank because it consistantly caused errors.
+;function with recursion to output solutions?
+;(define (equation randTargetNumber operators operatorOutput lst)
+;  (if (null? operators)
+;      1
+;      '()))
+
 ;Need to try get what I currently have working with two numbers with the 6 randomly generated numbers.
 ;This is a recursive sum funcition. Taken from the examples given in class.
 ;(define (sum6 l)
