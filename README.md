@@ -21,6 +21,13 @@ To create this I need a function which takes two arguments, the target number an
 '(- (+ (* 100 (+ 2 2)) 25) 1) 
 ```
 
+## How I planned to make this work in Theory
+For this countdown game to work i need to get 6 numbers, a target number and then output all possible solutions. First with advice from my lectuerer Ian I went about trying to solve the problem with 2 numbers instead of one.
+
+First I'd need to get two random numbers from the game list. then I'd need to get all possible answers for all combinations of equations, store them in a list and output one of them. This will then give the user the 2 random numbers and the target number. Next I need to output the answer equation.
+
+To output the equation i felt I would need to define a function whcih calulated every possible solution to the two numbers. To do this I thought using a function with recursion would be the best method. My research into my theory is documented below.
+
 ### Research
 #### 1.Getting the 6 numbers needed for the numbers game
 The first thing I wanted to do for this project was generate the 6 numbers we would be using to achive the target number for our numbers game. I was farmiler with lists from class so creating the list of numbers to chose from was simple and I gave the list a name to be reffered to later on.
@@ -122,3 +129,7 @@ This way I could get all possible answers for the 2 numbers. Next I decided I'd 
   (take (shuffle lst) n))
 ```
 Now the output is the two numbers and the target number. Next I needed the program to output the equation for reaching the target number but this is currently proving difficult.
+
+#### 4. Recurssion
+A definition of recursion I found on the stack exchange is "A mathematical function that calls itself to compute a value corresponding to an n-th element and which defines some boundaries". With this in mind I thought I could use this to output the equation to acheive the target number. Perhaps with two numbers recursion might make it a bit simpilier but with 6 this could be difficult. Reverse Polish Notation should be researched when solving this problem with 6 numbers.
+
