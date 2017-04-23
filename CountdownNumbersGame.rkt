@@ -55,13 +55,22 @@
 ;(randTargetNumber answers 1)
 
 ;Need to try get what I currently have working with two numbers with the 6 randomly generated numbers.
+;This is a recursive sum funcition. Taken from the examples given in class.
 (define (sum6 l)
   (if (null? l)
       0
 (+ (car l) (sum6 (cdr l)))))
 
+;this is a recursive multiply function.
+(define (multiply6 l)
+  (if (null? l)
+      1
+(* (car l) (multiply6 (cdr l)))))
+
+;Output.
 currentGameNumbers
 (sum6 currentGameNumbers)
+(multiply6 currentGameNumbers)
 
 
 
