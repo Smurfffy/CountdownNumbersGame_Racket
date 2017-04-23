@@ -25,12 +25,12 @@ To create this I need a function which takes two arguments, the target number an
 #### 1.Getting the 6 numbers needed for the numbers game
 The first thing I wanted to do for this project was generate the 6 numbers we would be using to achive the target number for our numbers game. I was farmiler with lists from class so creating the list of numbers to chose from was simple and I gave the list a name to be reffered to later on.
 
-```
+```Racket
 (define gameNumbers(list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
 ```
 From here I wanted to find a way to get 6 random numbers from this list. With some research I found the function in Racket called take. In Rackets offical documentation take is described 
 
-```
+```Racket
 (take lst pos) → list?
 
   lst : any/c
@@ -41,12 +41,12 @@ From here I wanted to find a way to get 6 random numbers from this list. With so
 
 So for my game numbers list I wanted 6 items from it. Take would get 6 items from the list but it would only be the first 6 
 
-```
+```Racket
 '(1 1 2 2 3 3)
 ```
 For the Numbers game I need to get 6 *Random* numbers from the gameNumbers list. Upon more research I found the shuffle function which is quite simply described from the racket documentation below.
 
-```
+```Racket
 (shuffle lst)
 ```
 >Returns a list with all elements from lst, randomly shuffled.
@@ -55,7 +55,7 @@ In my case lst will be my gameNumbers list.
 
 After finding the take and shuffle functions I could now get the randomly generated numbers I needed to create a target number for the game using the following code.
 
-```
+```Racket
 (define (randGameNumbers lst n)
   (take (shuffle lst) n))
 
@@ -64,13 +64,13 @@ After finding the take and shuffle functions I could now get the randomly genera
 #### 2.Getting A list for the Operators and combining them with the numbers list.
 Now that I have the 6 random numbers being generated I need to to create a list of operators to use with those numbers. Just like before I created a simple list contating all the opperators
 
-```
+```Racket
 (define operators (list '+ '- '* '/ ))
 ```
 Next I wanted to be able to pair our list of numbers with these operators so I could, in thoery, start created equations. From class and from research on the racket documentation I came accross the cartesian-product fuction which could help me achieve this.
 
 From the Racket documentation.
-```
+```Racket
   (cartesian-product lst ...) → (listof list?)
 
   lst : list?
@@ -79,6 +79,46 @@ From the Racket documentation.
 
 Now after finding this function i can create every outcome of our game numbers list combined with an operator.
 
-```
+```Racket
 (cartesian-product gameNumbers operators)
 ```
+
+#### 3.Getting the countdown game to work with two numbers.
+While doing this project I was advised by the lectuer and other students to attampt to get the countdown numbers game working with just two numers first instead of diving in to the more complex option of 6 numbers. I thought this might be a good way of getting my head around the idea of the game so I decided to go for it.
+
+First I made a simple list with two numbers 
+```Racket
+(define numbers(list 5 50))
+```
+Next I created some functions for adding, subtracting, multiplying and dividing the two numbers in the list.
+>Addition
+```Racket
+(define (sum lst)
+  (+ (car lst)(car(cdr lst))))
+```
+>Subtraction
+```Racket
+(define (subtract lst)
+  (- (car(cdr lst)) (car lst)))
+```
+>Multiplication
+```Racket
+(define (multiply lst)
+  (* (car(cdr lst)) (car lst)))
+```
+>Division
+```Racket
+(define (divide lst)
+  (/ (car(cdr lst)) (car lst)))
+```
+This way I could get all possible answers for the 2 numbers. Next I decided I'd store all the possible answers in a list. This way I can generate a random target number for the user.
+>list of ansers
+```Racket
+(define answers(list(sum numbers) (subtract numbers) (multiply numbers) (divide numbers)))
+```
+>Target number generation
+```Racket
+(define (randTargetNumber lst n)
+  (take (shuffle lst) n))
+```
+Now the output is the two numbers and the target number. Next I needed the program to output the equation for reaching the target number but this is currently proving difficult.
