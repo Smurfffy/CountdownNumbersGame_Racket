@@ -10,11 +10,14 @@
   (take (shuffle lst) n))
 
 ; Outputs the numbers for the game
-;(define perm (remove-duplicates(permutations (randGameNumbers gameNumbers 6))))
-(define currentGameNumbers (randGameNumbers gameNumbers 6))
+(define perm (remove-duplicates(permutations (randGameNumbers gameNumbers 6))))
+;(define currentGameNumbers (randGameNumbers gameNumbers 6))
 
 ;Defines the last of operators to be used in the game
-(define operators (list '+ '- '* '/ ))
+(define operators (list + - * /))
+
+;I assume this will be need for output.
+(define operatorOutput (list '+ '- '* '/))
 
 ;combines the gameNumbers list with the operators list to create every possible outcome.
 ;(cartesian-product gameNumbers operators)
@@ -56,21 +59,24 @@
 
 ;Need to try get what I currently have working with two numbers with the 6 randomly generated numbers.
 ;This is a recursive sum funcition. Taken from the examples given in class.
-(define (sum6 l)
-  (if (null? l)
-      0
-(+ (car l) (sum6 (cdr l)))))
+;(define (sum6 l)
+;  (if (null? l)
+;      0
+;(+ (car l) (sum6 (cdr l)))))
 
 ;this is a recursive multiply function.
-(define (multiply6 l)
-  (if (null? l)
-      1
-(* (car l) (multiply6 (cdr l)))))
+;(define (multiply6 l)
+;  (if (null? l)
+;      1
+;'(* (car l) (multiply6 (cdr l)))))
+
+;The two above functions add and multply the 6 random game numbers but it might not be usefull.
+;Will keep them in code for reference later.
 
 ;Output.
-currentGameNumbers
-(sum6 currentGameNumbers)
-(multiply6 currentGameNumbers)
+;currentGameNumbers
+;(sum6 currentGameNumbers)
+;(multiply6 currentGameNumbers)
 
 
 
