@@ -10,7 +10,8 @@
   (take (shuffle lst) n))
 
 ; Outputs the numbers for the game
-(define perm (remove-duplicates(permutations (randGameNumbers gameNumbers 6))))
+;(define perm (remove-duplicates(permutations (randGameNumbers gameNumbers 6))))
+(define currentGameNumbers (randGameNumbers gameNumbers 6))
 
 ;Defines the last of operators to be used in the game
 (define operators (list '+ '- '* '/ ))
@@ -24,7 +25,7 @@
 ;The sum function which gets the first number of the list and the 'rest' of the list
 ;Which in this case is just 50
 ;This wont work with 6 numbers however.
-(define (sum lst)
+(define (sum2 lst)
   (+ (car lst)(car(cdr lst))))
 
 ;Subtract function like sum above. numbers taken in different order so answer is not negative.
@@ -40,7 +41,7 @@
   (/ (car(cdr lst)) (car lst)))
 
 ;These results could be useful in a list for generating a target number
-(define answers(list(sum numbers) (subtract numbers) (multiply numbers) (divide numbers)))
+(define answers(list(sum2 numbers) (subtract numbers) (multiply numbers) (divide numbers)))
 
 ;Takes in the list of possible answers for the two numbers and outputs 1 answer.
 ;This will be the target number.
@@ -48,10 +49,19 @@
   (take (shuffle lst) n))
 
 ;Output
-"Game numbers are"
-numbers
-"Target number is"
-(randTargetNumber answers 1)
+;"Game numbers are"
+;numbers
+;"Target number is"
+;(randTargetNumber answers 1)
+
+;Need to try get what I currently have working with two numbers with the 6 randomly generated numbers.
+(define (sum6 l)
+  (if (null? l)
+      0
+(+ (car l) (sum6 (cdr l)))))
+
+currentGameNumbers
+(sum6 currentGameNumbers)
 
 
 
