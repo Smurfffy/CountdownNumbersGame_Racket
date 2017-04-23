@@ -56,6 +56,8 @@
 numbers
 "Target number is"
 (randTargetNumber answers 1)
+;Idealy right here in the output id like to output the equation.
+;This is proving difficult.
 
 ;Below function was my attempt at recursion. else part left blank because it consistantly caused errors.
 ;function with recursion to output solutions?
